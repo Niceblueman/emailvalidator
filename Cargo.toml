@@ -1,8 +1,49 @@
 [package]
-name = "hello_world"
-version = "0.0.0"
-workspace = "../../"
-publish = false
+name = "emailvalidator"
+version = "0.1.0"
+authors = ["@Niceblueman"]
+edition = "2021"
 
 [dependencies]
-rocket = { path = "../../core/lib" }
+rocket = { version = "0.5.0-rc.2", default-features = false, features = ["json", "secrets"] }
+schemars = "0.8.10"
+okapi = { version = "0.7.0-rc.1" }
+rocket_okapi = { version = "0.8.0-rc.2", features = ["rapidoc", "swagger", "secrets", "rocket_dyn_templates"] }
+owning_ref = "0.3"
+# rocket = { version = "=0.5.0-rc.2", default-features = false, features = ["json", "secrets"] }
+# rocket_okapi = { path = "../okapi/rocket-okapi", features = ["rapidoc", "swagger", "secrets", "rocket_dyn_templates"] }
+# schemars = "0.8.10"
+# serde = "1.0"
+# ejdb = "0.4"
+uuid = { version = "1.1.2" , default-features = false, features = [
+     "v4",                # Lets you generate random UUIDs
+    "fast-rng",          # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics", # Enable better diagnostics for compile-t
+]}
+# rocket_cors = "0.5.2"
+tinkoffpay = "1.0.3"
+reqwest = { version = "0.11.11", features = ["json"] }
+rusqlite = { version = "0.28.0", features = ["bundled-full"] }
+serde_rusqlite = "0.31.0"
+# hotpot-db = "0.0.2"
+lettre = "0.10"
+toml = "0.5.2"
+# rocket_cors = "0.6.0-alpha1"
+rocket_cors = "0.5.0"
+serde = {version = "1.0", features = ["derive"] }
+# serde_derive = "1.0.136"
+jsonwebtoken = "8.1.1"
+easylog = "2.0.1"
+tokio = "1.6"
+regex = "1"
+# samotop = "0"
+chrono = "0.4.22"
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
+rand = "0.8.5"
+check-if-email-exists = { path = "./check-if-email-exists"}
+# ctor = "0.1.23"
+# mailchecker = "5.0.0"
+# payup = "0.1.45"
+rocket_dyn_templates = {version = "=0.1.0-rc.2", features = ["handlebars"]}
+handlebars = "4.3.0"
+dotenv = "0.15.0"

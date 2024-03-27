@@ -1,1 +1,9 @@
-.DS_Store
+/target
+**/*.rs.bk
+Cargo.lock
+/.idea
+*.pem
+*.toml
+.env
+*.sqlite
+*.log

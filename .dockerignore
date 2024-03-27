@@ -1,0 +1,13 @@
+target/
+Dockerfile*
+.dockerignore
+.git
+.gitignore
+.env
+*.sqlite
+**/Cargo.lock
+/.idea
+**/.idea
+.vscode
+**/.vscode
+docker-compose.yml

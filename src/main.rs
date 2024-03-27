@@ -81,7 +81,7 @@ async fn main() {
             "/",
             openapi_get_routes![
                 api_key::check_handler,
-                // api_key::check_bulk,
+                api_key::check_bulk,
                 // http_auth::http_auth,
                 // oauth2::oauth2_auth_code_get_user,
                 // open_id::open_id,
@@ -324,12 +324,6 @@ mod tests {
         email
             .set_from_email("no-reply@accounts.google.com".into())
             .set_hello_name(_email.split("@").nth(1).unwrap().to_string());
-        // .set_proxy(CheckEmailInputProxy {         // Use a SOCKS5 proxy to verify the email
-        //     host: "37.99.224.225".into(),
-        //     port: 7497,
-        //     password: Some("".into()),
-        //     username: Some("".into())
-        // });
         let result = check_email(&email).await;
         println!("results: {:?}", result);
         assert_eq!(2, 2);
@@ -395,7 +389,7 @@ mod tests {
             last_count: 0 as u32,
             last_usage_day: now.to_rfc2822(),
             name: ApiTokenType::new(plans.starter.name.as_str()).string(),
-            phone: "+79965043656".into(),
+            phone: "+19999999999".into(),
         };
         let __time = keygen.get_current_timestamp() + Duration::days(30).num_seconds() as u64;
         let key = keygen
@@ -414,7 +408,7 @@ mod tests {
     #[tokio::test]
     async fn test_files() {
         // testing the token validation
-        let valid = FileServer::from("/bulkus/static");
+        let valid = FileServer::from("/app/static");
         println!("files :{:?}", valid);
     }
     #[tokio::test]
@@ -437,7 +431,7 @@ mod tests {
         _body.insert("email", "email@example.com");
         _body.insert("password", "password00");
         let res = client
-            .post("https://emailvalidator.kmoz.dev/register")
+            .post("https://mailvalidator.dup.company/register")
             .body(
                 "{\"username\":\"user0\",\"email\":\"user@email.com\",\"pass\":\"ajkshdkjsdfjk\"}",
             )

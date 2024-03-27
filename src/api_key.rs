@@ -227,14 +227,12 @@ impl<'a> OpenApiFromRequest<'a> for ApiKey {
 #[serde(crate = "rocket::serde")]
 #[derive(JsonSchema)]
 pub struct Email<'r> {
-    from_email: &'r str,
     to_email: &'r str,
 }
 #[derive(Deserialize, Serialize)]
 #[serde(crate = "rocket::serde")]
 #[derive(JsonSchema)]
 pub struct EmailBulk {
-    from_email: String,
     to_emails: Vec<String>,
 }
 #[derive(Deserialize, Serialize)]
@@ -1338,7 +1336,7 @@ pub async fn check_handler(
     let emailinput = email.to_email;
     let mut input = CheckEmailInput::new(emailinput.into());
     input
-        .set_from_email(email.from_email.into()) // Used in the `MAIL FROM:` command
+        .set_from_email("no-reply@accounts.google.com".to_string()) // Used in the `MAIL FROM:` command
         .set_hello_name(emailinput.split("@").nth(1).unwrap().into()); // Used in the `EHLO` command
     let myresult = check_email(&input).await;
     let can_connect = match myresult.smtp.as_ref() {
@@ -1399,114 +1397,114 @@ pub async fn check_handler(
     Ok(Json(responce))
 }
 
-// #[openapi]
-// #[post("/check_bulk", format = "application/json", data = "<emails>")]
-// pub async fn check_bulk(
-//     key: ApiKey,
-//     emails: Json<EmailBulk>,
-// ) -> Result<Json<Vec<EmailOutput>>, crate::MyError> {
-//     // Use api key
-//     let filename = "Plan.toml";
-//     let contents = fs::read_to_string(filename).unwrap();
-//     let all_plans = toml::from_str::<Plans>(&contents).unwrap();
-//     let _plans = ManagedPlans::default();
-//     let _plan = _plans.getplan(key.id);
-//     let his_plan_exp = _plan.first();
-//     if his_plan_exp.is_none() {
-//         return Err(MyError {
-//             err: "Rejected Request".to_owned(),
-//             msg: Some("Whoops! Looks you have no correct Api Plan".to_owned()),
-//             //exeeded emails limit by request.
-//             http_status_code: 200,
-//         });
-//     }
-//     let selected_plan = match his_plan_exp.unwrap().plan.as_str() {
-//         "Demo" => all_plans.demo,
-//         "Starter" => all_plans.starter,
-//         "Premium" => all_plans.premium,
-//         _ => all_plans.demo,
-//     };
-//     let allowed_max = selected_plan.items_per_req as usize;
-//     if emails.to_emails.len() > allowed_max {
-//         return Err(MyError {
-//             err: "Rejected Request".to_owned(),
-//             msg: Some("Whoops! Looks you have exeeded emails limit by request.".to_owned()),
-//             http_status_code: 200,
-//         });
-//     }
-//     let re = Regex::new(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$").unwrap();
-//     let cleaned = emails
-//         .to_emails
-//         .iter()
-//         .filter(|s| return re.is_match(s.to_owned().as_str()))
-//         .map(|f| format!("{}", f).to_string())
-//         .collect::<Vec<String>>();
-//     let responce = bulkcheckemails(emails.from_email.clone(), cleaned, Some(900 as u64)).await;
-//     let res = responce
-//         .iter()
-//         .map(|myresult| {
-//             let can_connect = match myresult.smtp.as_ref() {
-//                 Ok(m) => m.can_connect_smtp,
-//                 Err(_) => false,
-//             };
-//             let has_full_inbox = match myresult.smtp.as_ref() {
-//                 Ok(m) => m.has_full_inbox,
-//                 Err(_) => false,
-//             };
-//             let is_catch_all = match myresult.smtp.as_ref() {
-//                 Ok(m) => m.is_catch_all,
-//                 Err(_) => false,
-//             };
-//             let is_deliverable = match myresult.smtp.as_ref() {
-//                 Ok(m) => m.is_deliverable,
-//                 Err(_) => true,
-//             };
-//             let is_disabled = match myresult.smtp.as_ref() {
-//                 Ok(m) => m.is_disabled,
-//                 Err(_) => false,
-//             };
-//             EmailOutput {
-//                 input: myresult.clone().input.clone(),
-//                 status: Reachable::from_str(
-//                     format!("{:?}", myresult.clone().is_reachable).as_str(),
-//                 ),
-//                 misc: Misc {
-//                     is_disposable: myresult.clone().misc.as_ref().unwrap().is_disposable,
-//                     is_role_account: myresult.clone().misc.as_ref().unwrap().is_role_account,
-//                 },
-//                 mx_records: MxRecords {
-//                     records: myresult
-//                         .mx
-//                         .as_ref()
-//                         .unwrap()
-//                         .lookup
-//                         .as_ref()
-//                         .unwrap()
-//                         .iter()
-//                         .map(|record| Record {
-//                             host: record.exchange().clone().to_string(),
-//                             preference: record.preference().clone(),
-//                         })
-//                         .collect::<Vec<Record>>(),
-//                 }.records,
-//                 smtp_detail: Smtp {
-//                     can_connect_smtp: can_connect,
-//                     has_full_inbox,
-//                     is_catch_all,
-//                     is_deliverable,
-//                     is_disabled,
-//                 },
-//                 syntax: Syntax {
-//                     address: myresult.syntax.address.as_ref().unwrap().to_string(),
-//                     domain: myresult.syntax.domain.clone(),
-//                     is_valid_syntax: myresult.syntax.is_valid_syntax,
-//                     username: myresult.syntax.username.clone(),
-//                 },
-//             }
-//         })
-//         .collect::<Vec<EmailOutput>>();
-//     Ok(Json(res))
-// }
+#[openapi]
+#[post("/check_bulk", format = "application/json", data = "<emails>")]
+pub async fn check_bulk(
+    key: ApiKey,
+    emails: Json<EmailBulk>,
+) -> Result<Json<Vec<EmailOutput>>, crate::MyError> {
+    // Use api key
+    let filename = "Plan.toml";
+    let contents = fs::read_to_string(filename).unwrap();
+    let all_plans = toml::from_str::<Plans>(&contents).unwrap();
+    let _plans = ManagedPlans::default();
+    let _plan = _plans.getplan(key.id);
+    let his_plan_exp = _plan.first();
+    if his_plan_exp.is_none() {
+        return Err(MyError {
+            err: "Rejected Request".to_owned(),
+            msg: Some("Whoops! Looks you have no correct Api Plan".to_owned()),
+            //exeeded emails limit by request.
+            http_status_code: 200,
+        });
+    }
+    let selected_plan = match his_plan_exp.unwrap().plan.as_str() {
+        "Demo" => all_plans.demo,
+        "Starter" => all_plans.starter,
+        "Premium" => all_plans.premium,
+        _ => all_plans.demo,
+    };
+    let allowed_max = selected_plan.items_per_req as usize;
+    if emails.to_emails.len() > allowed_max {
+        return Err(MyError {
+            err: "Rejected Request".to_owned(),
+            msg: Some("Whoops! Looks you have exeeded emails limit by request.".to_owned()),
+            http_status_code: 200,
+        });
+    }
+    let re = Regex::new(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$").unwrap();
+    let cleaned = emails
+        .to_emails
+        .iter()
+        .filter(|s| return re.is_match(s.to_owned().as_str()))
+        .map(|f| format!("{}", f).to_string())
+        .collect::<Vec<String>>();
+    let responce = bulkcheckemails("no-reply@accounts.google.com".into(), cleaned, Some(900 as u64)).await;
+    let res = responce
+        .iter()
+        .map(|myresult| {
+            let can_connect = match myresult.smtp.as_ref() {
+                Ok(m) => m.can_connect_smtp,
+                Err(_) => false,
+            };
+            let has_full_inbox = match myresult.smtp.as_ref() {
+                Ok(m) => m.has_full_inbox,
+                Err(_) => false,
+            };
+            let is_catch_all = match myresult.smtp.as_ref() {
+                Ok(m) => m.is_catch_all,
+                Err(_) => false,
+            };
+            let is_deliverable = match myresult.smtp.as_ref() {
+                Ok(m) => m.is_deliverable,
+                Err(_) => true,
+            };
+            let is_disabled = match myresult.smtp.as_ref() {
+                Ok(m) => m.is_disabled,
+                Err(_) => false,
+            };
+            EmailOutput {
+                input: myresult.clone().input.clone(),
+                status: Reachable::from_str(
+                    format!("{:?}", myresult.clone().is_reachable).as_str(),
+                ),
+                misc: Misc {
+                    is_disposable: myresult.clone().misc.as_ref().unwrap().is_disposable,
+                    is_role_account: myresult.clone().misc.as_ref().unwrap().is_role_account,
+                },
+                mx_records: MxRecords {
+                    records: myresult
+                        .mx
+                        .as_ref()
+                        .unwrap()
+                        .lookup
+                        .as_ref()
+                        .unwrap()
+                        .iter()
+                        .map(|record| Record {
+                            host: record.exchange().clone().to_string(),
+                            preference: record.preference().clone(),
+                        })
+                        .collect::<Vec<Record>>(),
+                }.records,
+                smtp_detail: Smtp {
+                    can_connect_smtp: can_connect,
+                    has_full_inbox,
+                    is_catch_all,
+                    is_deliverable,
+                    is_disabled,
+                },
+                syntax: Syntax {
+                    address: myresult.syntax.address.as_ref().unwrap().to_string(),
+                    domain: myresult.syntax.domain.clone(),
+                    is_valid_syntax: myresult.syntax.is_valid_syntax,
+                    username: myresult.syntax.username.clone(),
+                },
+            }
+        })
+        .collect::<Vec<EmailOutput>>();
+    Ok(Json(res))
+}
 
 #[post("/demoCheck", format = "application/json", data = "<email>")]
 pub async fn demo_check(user: AnonymousUser, email: Json<Email<'_>>) -> CheckDemoResponce {
@@ -1530,7 +1528,7 @@ pub async fn demo_check(user: AnonymousUser, email: Json<Email<'_>>) -> CheckDem
             // verification.
             // println!("{}",email);
             input
-                .set_from_email(email.from_email.into()) // Used in the `MAIL FROM:` command
+                .set_from_email("no-reply@accounts.google.com".to_string()) // Used in the `MAIL FROM:` command
                 .set_hello_name(emailinput.split("@").nth(1).unwrap().into()); // Used in the `EHLO` command
                                                                                // .set_proxy(CheckEmailInputProxy {         // Use a SOCKS5 proxy to verify the email
                                                                                //     host: myproxy.0.into(),

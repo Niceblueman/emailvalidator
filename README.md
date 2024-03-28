@@ -56,40 +56,40 @@ Interactive documentation is readily available for users to explore the API's fe
 # API ROUTES (benerated from rocket_logs):
 
 📬 Routes:
-   >> (mainpage) GET /
-   >> (check_handler) POST /check application/json
-   >> (login) POST /login application/json
-   >> (getplans) POST /plans
-   >> (recover) POST /recover application/json
-   >> (profile) GET /profile
-   >> (manage_plans) POST /myplans application/json
-   >> (payment_link) POST /payment application/json
-   >> (register) POST /register application/json
-   >> (pay_back) POST /pay_back application/json
-   >> (pay_back_get) GET /pay_back
-   >> (demo_check) POST /demoCheck application/json
-   >> (check_bulk) POST /check_bulk application/json
-   >> GET /openapi.json
-   >> (FileServer: ./templates/feed) GET /rss/<path..> [10]
-   >> (FileServer: ./templates/icons) GET /icons/<path..> [10]
-   >> (FileServer: ./templates/static) GET /static/<path..> [10]
-   >> (FileServer: ./templates/assets) GET /assets/<path..> [10]
-   >> GET /rapidoc/
-   >> GET /rapidoc/index.html
-   >> GET /rapidoc/rapidoc-min.js
-   >> GET /rapidoc/oauth-receiver.html
-   >> GET /swagger-ui/
-   >> (FileServer: ./templates/Background) GET /Background/<path..> [10]
-   >> GET /swagger-ui/index.css
-   >> GET /swagger-ui/index.html
-   >> GET /swagger-ui/swagger-ui.css
-   >> GET /swagger-ui/oauth2-redirect.html
-   >> GET /swagger-ui/swagger-ui-bundle.js
-   >> GET /swagger-ui/swagger-ui-config.json
-   >> GET /swagger-ui/swagger-initializer.js
-   >> GET /swagger-ui/swagger-ui-standalone-preset.js
+   - > (mainpage) GET /
+   - > (check_handler) POST /check application/json
+   - > (login) POST /login application/json
+   - > (getplans) POST /plans
+   - > (recover) POST /recover application/json
+   - > (profile) GET /profile
+   - > (manage_plans) POST /myplans application/json
+   - > (payment_link) POST /payment application/json
+   - > (register) POST /register application/json
+   - > (pay_back) POST /pay_back application/json
+   - > (pay_back_get) GET /pay_back
+   - > (demo_check) POST /demoCheck application/json
+   - > (check_bulk) POST /check_bulk application/json
+   - > GET /openapi.json
+   - > (FileServer: ./templates/feed) GET /rss/<path..> [10]
+   - > (FileServer: ./templates/icons) GET /icons/<path..> [10]
+   - > (FileServer: ./templates/static) GET /static/<path..> [10]
+   - > (FileServer: ./templates/assets) GET /assets/<path..> [10]
+   - > GET /rapidoc/
+   - > GET /rapidoc/index.html
+   - > GET /rapidoc/rapidoc-min.js
+   - > GET /rapidoc/oauth-receiver.html
+   - > GET /swagger-ui/
+   - > (FileServer: ./templates/Background) GET /Background/<path..> [10]
+   - > GET /swagger-ui/index.css
+   - > GET /swagger-ui/index.html
+   - > GET /swagger-ui/swagger-ui.css
+   - > GET /swagger-ui/oauth2-redirect.html
+   - > GET /swagger-ui/swagger-ui-bundle.js
+   - > GET /swagger-ui/swagger-ui-config.json
+   - > GET /swagger-ui/swagger-initializer.js
+   - > GET /swagger-ui/swagger-ui-standalone-preset.js
 🥅 Catchers:
-   >> (bad_request) 400
-   >> (unauthorized) 401
-   >> (not_found) 404
-   >> (internal_error) 500
+   - > (bad_request) 400
+   - > (unauthorized) 401
+   - > (not_found) 404
+   - > (internal_error) 500

@@ -1,9 +1,2 @@
-/target
-**/*.rs.bk
-Cargo.lock
-/.idea
-*.pem
-*.toml
-.env
-*.sqlite
-*.log
+package-lock.json
+node_modules/

@@ -18,6 +18,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className='main'>
+        Hello
+      </div>
     </div>
   );
 }

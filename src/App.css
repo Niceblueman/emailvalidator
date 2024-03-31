@@ -1,9 +1,10 @@
-.App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
-
+*::-webkit-scrollbar {
+  display: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,23 +15,71 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+svg{
+  margin: unset;
+}
+.react-json-view{
+  overflow: scroll;
+  font-size: 13px;
+}
+/* .swiper-button-prev-2 { */
+  /* background:unset; */
+  /* background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%234c71ae'%2F%3E%3C%2Fsvg%3E") !important; */
+/* } */
 
-.App-header {
-  flex: 1;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* .swiper-button-next-2 { */
+  /* background:unset; */
+  /* background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%234c71ae'%2F%3E%3C%2Fsvg%3E") !important; */
+/* } */
+.swiper-button-next-2,
+.swiper-button-prev-2 {
+    /* background-color: white; */
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    padding: 30px;
+    color: #000 !important;
+    fill: black !important;
+    stroke: black !important;
+}
+.swiper-button-next-2 {
+  right:-40px !important;
+}
+.swiper-button-prev-2 {
+  left:-40px !important;
+}
+@media (max-width: 1200px) {
+  .swiper-button-next-2 {
+    right:-3px !important;
+  }
+  .swiper-button-prev-2 {
+    left:-3px !important;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 700px) {
+  .swiper-button-next-2 {
+    right:-15px !important;
+  }
+  .swiper-button-prev-2 {
+    left:-15px !important;
+  }
 }
-
+#second_payment_seg {
+  display: none;
+}
+@media (max-width: 660px) {
+  .swiper-button-next-2 {
+    display: none !important;
+  }
+  #second_payment_seg {
+    display: flex;
+  }
+  #Swiper {
+    display: none;
+  }
+  .swiper-button-prev-2 {
+    display: none !important;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -40,6 +89,3 @@
   }
 }
 
-.main{
-  flex: 1;
-}

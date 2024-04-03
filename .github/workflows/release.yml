@@ -1,0 +1,39 @@
+on:
+    push:
+      branches:
+        - 'frontend'
+  
+permissions:
+    contents: write
+    packages: write
+jobs:
+    releases-matrix:
+      strategy:
+        matrix:
+          arch: [x64, arm64]
+        max-parallel: 3
+      name: Release Binary
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+            ref: 'frontend'
+        - uses: oven-sh/setup-bun@v1
+          with:
+            bun-version: latest
+        - name: build go template.
+          run: |
+            bun i
+            bun run build
+            mv build/index.html build/index.html.hbs
+            tar -czvf front.tar.gz build
+        - name: Release
+          uses: softprops/action-gh-release@v1
+          with:
+            files: frontend.tar.gz 
+            tag_name: latest
+            name: frontend.tar.gz
+            token: ${{ secrets.GITHUB_TOKEN }}
+        

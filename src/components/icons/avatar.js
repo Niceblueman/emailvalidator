@@ -28,4 +28,3 @@ function Avatar(props) {
 }
 
 export default React.memo(Avatar);
-

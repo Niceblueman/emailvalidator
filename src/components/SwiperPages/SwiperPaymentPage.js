@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
@@ -338,4 +339,3 @@ const Btn = styled.button`
     color: var(--TextColor);
     /* margin-top: 100px; */
 `
-

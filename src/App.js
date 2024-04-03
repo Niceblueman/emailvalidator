@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 import './App.css';
-import DerrivedFooter from './components/Footers/derrivedFooter';
-import Footer from './components/Footers/footer';
-import Header from './components/header';
-import Main from './components/main';
-import SwiperPage from './components/SwiperPages/SwiperPage';
-import RegisterLogin from './components/RegisterLogin';
-import Profile from './components/Profile';
+import DerrivedFooter from './components/Footers/derrivedFooter.js';
+import Footer from './components/Footers/footer.js';
+import Header from './components/header.js';
+import Main from './components/main.js';
+import SwiperPage from './components/SwiperPages/SwiperPage.js';
+import RegisterLogin from './components/RegisterLogin.js';
+import Profile from './components/Profile.js';
 import { useState, useReducer } from 'react';
 import { useEffect } from 'react';
-import { getCookie } from './api/client';
+import { getCookie } from './api/client.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CookieNotice } from 'react-cookienotice'

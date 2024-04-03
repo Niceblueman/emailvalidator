@@ -118,4 +118,3 @@ const Txt = styled.div`
     color: var(--TextColor);
     margin-top: 20px;
 `
-

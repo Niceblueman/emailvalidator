@@ -194,4 +194,3 @@ const TxtShortBox = styled.div`
     margin-top: 20px;
     text-align: center;
 `
-

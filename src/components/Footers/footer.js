@@ -36,7 +36,7 @@ const Footer = () => {
                     <Logo src="./icons/logo-blue.svg" />
                     <ContentContainer>
 
-                        <ContentItem>© 2024 DUP Inc. All Rights Reserved. Terms
+                        <ContentItem>© 2024. All Rights Reserved. Terms
                             & Conditions and Privacy Policy.</ContentItem>
                     </ContentContainer>
                 </LookUp>

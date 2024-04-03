@@ -215,4 +215,3 @@ const Input = styled.div`
     box-shadow: inset 4px 4px 20px 0 rgba(0, 0, 0, 0.15), inset -4px -4px 20px 0 white;
     border-radius: 5px;
 `
-

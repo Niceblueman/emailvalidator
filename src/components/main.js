@@ -1,7 +1,8 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-vars */
-/* eslint-disable eqeqeq */
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import ReactJson from 'react-json-view'
@@ -26,10 +27,10 @@ const Main = () => {
         "email": "email@example.com",
         "email_syntax_valid": "Boolean",
         "mx_records": [
-        {
+          {
             "host": "mx.example.com.",
             "preference": "Number"
-        }
+          }
         ],
         "restricted": "Boolean",
         "smtp_can_catch_all": "Boolean",
@@ -39,7 +40,7 @@ const Main = () => {
         "smtp_live": "Boolean",
         "status": "Safe|Invalid|Unknown",
         "temporary_email": "Boolean"
-    })
+      })
     const [email, setEmail] = useState("")
     const [isloading, setIsloading] = useState(false)
     const checkEmail = () => {
@@ -445,6 +446,5 @@ const LeftSideRow = styled.div`
     justify-content:center;
     align-items:center;
 `
-
 
 

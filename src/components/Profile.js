@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-vars */
@@ -1073,4 +1074,3 @@ const EmptyBasket = styled.div`
     justify-content: center;
     align-items: center;
 `;
-

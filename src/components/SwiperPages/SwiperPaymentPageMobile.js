@@ -330,4 +330,3 @@ const Btn = styled.button`
     color: var(--TextColor);
     /* margin-top: 100px; */
 `
-

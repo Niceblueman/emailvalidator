@@ -70,7 +70,7 @@ const Header = ({ header, setOpenPanel, _setProfile, setLogin }) => {
     return (
         <Wrapper>
             <Container>
-                <Logo src="/icons/logo-blue.svg" />
+                <Logo  src="/icons/logo-blue.svg" />
                 <NavLine>
                     <NavItem onClick={() => {
                         var el = document.querySelector(".swiper div");
@@ -102,7 +102,7 @@ const Header = ({ header, setOpenPanel, _setProfile, setLogin }) => {
                 </NavLine>
             </Container>
             <WrapperMobile>
-                <Logo src="/icons/logo192.png" />
+                <Logo src="/icons/apple-touch-icon.png" />
                 <CheckBox type='checkbox' name="" id="menu-toggle" checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
                 <HamburgerLine>
                     <Line className="line1"></Line>
@@ -134,13 +134,13 @@ const Header = ({ header, setOpenPanel, _setProfile, setLogin }) => {
                     }}>
                         {"Swagger"}
                     </MenuItemsLi>
-                    <MenuItemsLi onClick={() =>{
+                    <MenuItemsLi onClick={() => {
                         setIsChecked(!isChecked)
                         setLogin(s => ({ register: false, login: true, recover: false }))
                     }}>
                         {t('enter')}
                     </MenuItemsLi>
-                    <MenuItemsLi onClick={() =>{
+                    <MenuItemsLi onClick={() => {
                         setIsChecked(!isChecked)
                         setLogin(s => ({ login: false, register: true, recover: false }))
                     }}>
@@ -189,9 +189,14 @@ const Container = styled.div`
 `
 
 const Logo = styled.img`
-    height: 78px;
+    height: 58px;
     flex: 2;
     object-fit: contain;
+    transition: transform;
+    transform: rotate(0deg);
+    &:hover {
+        transform: rotate(360deg);
+    }
     @media screen and (max-width: 767px) {
         width: 130px;
         height: 54px;
@@ -342,5 +347,5 @@ const MenuItemsLi = styled.div`
     cursor: pointer;
     @media screen  and (max-width: 767px){
         margin-bottom: 40px;
-    }`
-
+    }
+    `

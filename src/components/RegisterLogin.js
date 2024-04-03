@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-vars */
@@ -509,4 +510,4 @@ const LoginModel = styled.div`
         margin-top: 25%;
         margin-bottom: 10%;
         };
-
+`

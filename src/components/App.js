@@ -157,4 +157,3 @@ const Screen = styled.img`
     object-fit: contain;
     border-radius: 5px;
 `;
-

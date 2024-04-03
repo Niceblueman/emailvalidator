@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from "react"
 import styled from "styled-components";
 
@@ -14,7 +15,7 @@ const Consent = styled.div`
 export default () => {
     return (
         <Consent>
-            <h1>Privacy Policy for OLDI DEVELOPEMENT OOO</h1>
+            <h1>Privacy Policy</h1>
 
             <p>At EMAILVALIDATOR, accessible from mailvalidator.dup.company, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by EMAILVALIDATOR and how we use it.</p>
 
@@ -110,4 +111,3 @@ export default () => {
         </Consent>
     )
 }
-

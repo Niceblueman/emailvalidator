@@ -143,4 +143,3 @@ const Disclaymer = styled.div`
         margin: 50px 0px;
     }
 `
-

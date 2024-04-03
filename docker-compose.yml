@@ -2,7 +2,7 @@ version: '3'
 services:
   mailvalidator:
     image: mailvalidator:latest
-    command: /app/mailvalidator
+    # command: /app/mailvalidator
     build:
       context: .
       dockerfile: ./email-validator/Dockerfile
@@ -10,7 +10,7 @@ services:
     ports:
       - "8383:8383"
     volumes:
-      - "./live:/app/templates"
+      - "./template:/app/templates"
       - "./Plan.toml:/app/Plan.toml"
       - "./Stripe.toml:/app/Stripe.toml"
       - "./Rocket.toml:/app/Rocket.toml"

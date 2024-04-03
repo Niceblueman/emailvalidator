@@ -27,13 +27,13 @@ jobs:
           run: |
             bun i
             bun run build
-            mv build/index.html build/index.html.hbs
-            mv build template
-            tar -czvf front.tar.gz template
+            mv ./build/index.html ./build/index.html.hbs
+            mv ./build template
+            tar czf front.tar.gz template
         - name: Release
           uses: softprops/action-gh-release@v1
           with:
-            files: frontend.tar.gz 
+            files: ./front.tar.gz 
             tag_name: latest
             name: frontend.tar.gz
             token: ${{ secrets.GITHUB_TOKEN }}

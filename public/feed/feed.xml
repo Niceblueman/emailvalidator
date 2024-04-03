@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2022-11-22T14:37:38+03:00">
+    <shop>
+        <name>mailvalidator.dup.company</name>
+        <company>mailvalidator.dup.company</company>
+        <url>https://mailvalidator.dup.company</url>
+        <platform>MAILVALIDATOR</platform>
+        <categories>
+            <category id="101">Subscription plans</category>
+        </categories>
+        <offers>
+            <offer id="0">
+                <name>Demo</name>
+                <url>https://mailvalidator.dup.company</url>
+                <price>0</price>
+                <enable_auto_discounts>true</enable_auto_discounts>
+                <currencyId>USD</currencyId>
+                <categoryId>101</categoryId>
+                <picture>https://res.cloudinary.com/dupagadir/image/upload/v1665687608/Screen_Shot_2022-10-13_at_9.59.11_PM_apkfza.png</picture>
+                <description>
+                    <![CDATA[          
+                        <p>250 API request/day</p>
+                        <p>Advanced Validation Tools</p>
+                    ]]>
+                </description>
+            </offer>
+            <offer id="1">
+                <name>Starter</name>
+                <url>https://mailvalidator.dup.company</url>
+                <price>100</price>
+                <enable_auto_discounts>true</enable_auto_discounts>
+                <currencyId>USD</currencyId>
+                <categoryId>101</categoryId>
+                <picture>https://res.cloudinary.com/dupagadir/image/upload/v1665687608/Screen_Shot_2022-10-13_at_9.59.24_PM_ilsx2m.png</picture>
+                <description>
+                    <![CDATA[          
+                        <p>1500 API request/day</p>
+                        <p>Advanced Validation Tools</p>
+                        <p>Secure Datastreams</p>
+                    ]]>
+                </description>
+            </offer>
+            <offer id="2">
+                <name>Pro</name>
+                <url>https://mailvalidator.dup.company</url>
+                <price>250</price>
+                <enable_auto_discounts>true</enable_auto_discounts>
+                <currencyId>USD</currencyId>
+                <categoryId>101</categoryId>
+                <picture>https://res.cloudinary.com/dupagadir/image/upload/v1665687608/Screen_Shot_2022-10-13_at_9.59.32_PM_pqqemh.png</picture>
+                <description>
+                    <![CDATA[          
+                        <p>unlimited API request/day</p>
+                        <p>Advanced Validation Tools</p>
+                        <p>Secure Datastreams</p>
+                    ]]>
+                </description>
+            </offer>
+        </offers>
+    </shop>
+</yml_catalog>

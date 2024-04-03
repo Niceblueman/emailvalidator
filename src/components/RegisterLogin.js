@@ -67,7 +67,7 @@ export default ({ login, register, recover, setLogin, setHeader }) => {
         Client.post('/login', JSON.stringify(logindata), {
             timeout: 1500,
         }).then(async (res) => {
-            console.log(res.data);
+            // console.log(res.data);
             if (res.data.success) {
                 setCookie("____ads", res.data.id, 'session')
                 toast.success(res.data.reason, {

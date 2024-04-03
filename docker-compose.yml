@@ -5,7 +5,7 @@ services:
     # command: /app/mailvalidator
     build:
       context: .
-      dockerfile: ./email-validator/Dockerfile
+      dockerfile: Dockerfile
     container_name: mailvalidator
     ports:
       - "8383:8383"

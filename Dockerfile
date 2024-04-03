@@ -7,7 +7,7 @@ FROM rust:latest
 WORKDIR /app
 COPY --from=cargobuild /usr/app/target/release/emailvalidator ./mailvalidator
 COPY ./start.sh .
-COPY ./templates ./templates
+COPY ./template ./templates
 RUN chmod +x start.sh
 EXPOSE 8383
 ENTRYPOINT ["/app/start.sh"]

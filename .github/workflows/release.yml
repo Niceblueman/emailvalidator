@@ -10,7 +10,7 @@ jobs:
     releases-matrix:
       strategy:
         matrix:
-          arch: [x64, arm64]
+          arch: [arm64]
         max-parallel: 3
       name: Release Binary
       runs-on: ubuntu-latest

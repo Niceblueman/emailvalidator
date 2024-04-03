@@ -10,14 +10,25 @@ jobs:
         strategy:
           fail-fast: false
           matrix:
-            target: [x86_64-pc-windows-gnu, x86_64-unknown-linux-musl]
+            target: [x86_64-unknown-linux-musl]
         steps:
           - uses: actions/checkout@master
           - name: Compile and release
+            id: compile
             uses: rust-build/rust-build.action@v1.4.5
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
               RUSTTARGET: ${{ matrix.target }}
               EXTRA_FILES: "README.md LICENSE"
+              UPLOAD_MODE: none
+          - name: Release
+            uses: softprops/action-gh-release@v1
+            with:
+              files: |
+                ${{ steps.compile.outputs.BUILT_ARCHIVE }}
+                ${{ steps.compile.outputs.BUILT_CHECKSUM }}
+              tag_name: latest
+              name: emailvalidator_server.tar
+              token: ${{ secrets.GITHUB_TOKEN }}
           

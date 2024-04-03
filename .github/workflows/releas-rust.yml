@@ -20,8 +20,10 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
               RUSTTARGET: ${{ matrix.target }}
+              TOOLCHAIN_VERSION: nightly
               EXTRA_FILES: "README.md LICENSE"
-              UPLOAD_MODE: none
+              UPLOAD_MODE: release
+              MINIFY: true
           - name: Release
             uses: softprops/action-gh-release@v1
             with:

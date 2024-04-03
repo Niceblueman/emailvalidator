@@ -27,8 +27,8 @@ jobs:
               - recursive: true
         - name: build go template.
           run: |
-            bun i
-            bun run build
+            pnpm i
+            pnpm run build
             mv build/index.html build/index.html.hbs
             mv build template
             tar -czvf front.tar.gz template

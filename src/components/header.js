@@ -78,10 +78,10 @@ const Header = ({ header, setOpenPanel, _setProfile, setLogin }) => {
                         el?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
                         _swiper?.swiper?.slideTo(3)
                     }}>{t('cost')}</NavItem>
-                    <NavItem onClick={() => {
+                    {/* <NavItem onClick={() => {
                         var el = document.querySelector("#partners");
                         el?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-                    }}>{t('partners')}</NavItem>
+                    }}>{t('partners')}</NavItem> */}
                     <NavItem onClick={() => {
                         window.open('https://mailvalidator.dup.company/rapidoc/')
                     }}>{t('documentation')}</NavItem>

@@ -1,0 +1,8 @@
+[submodule "app-back"]
+	path = app-back
+	url = https://github.com/ispapp/collect-v2.git
+	branch = backend
+[submodule "app-front"]
+	path = ispapp-front
+	url = https://github.com/ispapp/collect-v2.git
+	branch = frontend

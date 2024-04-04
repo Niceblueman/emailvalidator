@@ -1,8 +1,8 @@
 [submodule "app-back"]
 	path = app-back
-	url = https://github.com/ispapp/collect-v2.git
+	url = https://github.com/Niceblueman/emailvalidator.git
 	branch = backend
 [submodule "app-front"]
-	path = ispapp-front
-	url = https://github.com/ispapp/collect-v2.git
+	path = app-front
+	url = https://github.com/Niceblueman/emailvalidator.git
 	branch = frontend

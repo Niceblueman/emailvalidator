@@ -1,4 +1,11 @@
 <div align="center">
+  <a href="https://github.com/Niceblueman/emailvalidator/tree/backend">Backend branch ></a>
+  </br>
+  <a href="https://github.com/Niceblueman/emailvalidator/tree/frontend">Frontend branch ></a>
+</div>
+
+
+<div align="center">
   <h1>Email Verification API</h1>
 </div>
 

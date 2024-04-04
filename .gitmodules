@@ -1,8 +1,8 @@
 [submodule "app-back"]
 	path = app-back
-	url = https://github.com/Niceblueman/emailvalidator.git
+	url = git@github.com:Niceblueman/emailvalidator.git
 	branch = backend
 [submodule "app-front"]
 	path = app-front
-	url = https://github.com/Niceblueman/emailvalidator.git
+	url = git@github.com:Niceblueman/emailvalidator.git
 	branch = frontend

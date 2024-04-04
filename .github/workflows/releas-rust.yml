@@ -20,7 +20,7 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
               RUSTTARGET: ${{ matrix.target }}
-              TOOLCHAIN_VERSION: nightly
+              TOOLCHAIN_VERSION: nightly-x86_64-unknown-linux-gnu
               EXTRA_FILES: "README.md LICENSE"
               UPLOAD_MODE: release
               MINIFY: true
@@ -31,6 +31,6 @@ jobs:
                 ${{ steps.compile.outputs.BUILT_ARCHIVE }}
                 ${{ steps.compile.outputs.BUILT_CHECKSUM }}
               tag_name: latest
-              name: emailvalidator_server.tar
+              name: emailvalidator_server.tar.gz
               token: ${{ secrets.GITHUB_TOKEN }}
           

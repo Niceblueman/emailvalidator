@@ -13,8 +13,11 @@ services:
       - "./template:/app/templates"
       - "./Plan.toml:/app/Plan.toml"
       - "./Stripe.toml:/app/Stripe.toml"
+      - "./private_key.pem:/app/private_key.pem"
+      - "./public_key.pem:/app/public_key.pem"
       - "./Rocket.toml:/app/Rocket.toml"
       - "./.env:/app/.env"
+      - "./start.sh:/app/start.sh"
     environment:
       - "RUST_BACKTRACE=1"
     restart: unless-stopped
